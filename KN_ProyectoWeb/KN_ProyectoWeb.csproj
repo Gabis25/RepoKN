@@ -136,6 +136,8 @@
     <Content Include="StaticFiles\CSS\perfect-scrollbar.css" />
     <Content Include="StaticFiles\CSS\theme-default.css" />
     <Content Include="StaticFiles\fonts\boxicons.svg" />
+    <Content Include="StaticFiles\img\1.png" />
+    <Content Include="StaticFiles\img\logo.JPG" />
     <Content Include="StaticFiles\JS\bootstrap.js" />
     <Content Include="StaticFiles\JS\config.js" />
     <Content Include="StaticFiles\JS\helpers.js" />
@@ -156,7 +158,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_LayoutExterno.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_LayoutInterno .cshtml" />
+    <Content Include="Views\Shared\_LayoutInterno.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -169,6 +171,7 @@
     <Content Include="StaticFiles\fonts\boxicons.woff" />
     <Content Include="StaticFiles\fonts\boxicons.woff2" />
     <Content Include="Views\Home\Registro.cshtml" />
+    <Content Include="Views\Home\Principal.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
