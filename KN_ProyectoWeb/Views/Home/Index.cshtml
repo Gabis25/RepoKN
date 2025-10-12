@@ -12,7 +12,7 @@
                     <div class="app-brand justify-content-center">
                         <a href="index.html" class="app-brand-link gap-2">
                             <img src="~/StaticFiles/img/logo.JPG" />
-                            <span class="app-brand-text demo text-body fw-bolder">Proyecto Web KN</span>
+                            <span class="app-brand-text demo text-body fw-bolder">Iniciar Sesión</span>
                         </a>
                     </div>
                     <!-- /Logo -->
@@ -25,7 +25,7 @@
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">
                                 <label class="form-label" for="password">Contraseña</label>
-                                <a href="auth-forgot-password-basic.html">
+                                <a href="@Url.Action("RecuperarAcceso", "Home")">
                                     <small>Olvidó su contraseña?</small>
                                 </a>
                             </div>
@@ -34,9 +34,9 @@
                                 <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                             </div>
                         </div>
-                         <div class="mb-3">
-                             <button class="btn btn-primary d-grid w-100" type="submit">Procesar</button>
-                           </div>
+                        <div class="mb-3">
+                            <button class="btn btn-primary d-grid w-100" type="submit">Procesar</button>
+                        </div>
                     </form>
 
                     <p class="text-center">
