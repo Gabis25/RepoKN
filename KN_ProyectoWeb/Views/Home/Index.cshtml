@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                         <label for="email" class="form-label">Correo Electrónico</label>
-                        <input type="text" class="form-control" id="CorreoElectronico" name="CorreoElectronico" />
+                        @Html.TextBoxFor(x => x.CorreoElectronico, new { @class = "form-control", @type="email" })
                     </div>
 
                     <div class="mb-3 form-password-toggle">
@@ -37,6 +37,7 @@
 
                         <div class="input-group input-group-merge">
                             <input type="password" class="form-control" id="Contrasenna" name="Contrasenna" aria-describedby="password" />
+                            @Html.TextBoxFor(x => x.Contrasenna, new { @class = "form-control", @type= "password"})
                             <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                         </div>
                     </div>
