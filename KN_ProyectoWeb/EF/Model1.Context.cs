@@ -12,6 +12,8 @@ namespace KN_ProyectoWeb.EF
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BD_KNEntities : DbContext
     {
@@ -27,5 +29,26 @@ namespace KN_ProyectoWeb.EF
     
         public virtual DbSet<tbPerfil> tbPerfil { get; set; }
         public virtual DbSet<tbUsuario> tbUsuario { get; set; }
+    
+        public virtual int CrearUsuarios(string identificacion, string nombre, string correoElectronico, string contrasenna)
+        {
+            var identificacionParameter = identificacion != null ?
+                new ObjectParameter("Identificacion", identificacion) :
+                new ObjectParameter("Identificacion", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("Nombre", nombre) :
+                new ObjectParameter("Nombre", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("CorreoElectronico", correoElectronico) :
+                new ObjectParameter("CorreoElectronico", typeof(string));
+    
+            var contrasennaParameter = contrasenna != null ?
+                new ObjectParameter("Contrasenna", contrasenna) :
+                new ObjectParameter("Contrasenna", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("CrearUsuarios", identificacionParameter, nombreParameter, correoElectronicoParameter, contrasennaParameter);
+        }
     }
 }

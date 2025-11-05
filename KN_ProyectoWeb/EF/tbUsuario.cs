@@ -21,5 +21,7 @@ namespace KN_ProyectoWeb.EF
         public string Contrasenna { get; set; }
         public bool Estado { get; set; }
         public int ConsecutivoPerfil { get; set; }
+    
+        public virtual tbPerfil tbPerfil { get; set; }
     }
 }

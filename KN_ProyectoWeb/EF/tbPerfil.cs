@@ -14,7 +14,16 @@ namespace KN_ProyectoWeb.EF
     
     public partial class tbPerfil
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public tbPerfil()
+        {
+            this.tbUsuario = new HashSet<tbUsuario>();
+        }
+    
         public int ConsecutivoPerfil { get; set; }
         public string Nombre { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<tbUsuario> tbUsuario { get; set; }
     }
 }
