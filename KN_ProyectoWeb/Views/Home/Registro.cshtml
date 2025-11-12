@@ -16,17 +16,25 @@
                     </a>
                 </div>
 
+                @if (ViewBag.Mensaje != null)
+                {
+                    <div class="alert alert-info" text-center>
+                        @ViewBag.Mensaje
+                    </div>
+                }
+                
+
                 @using (Html.BeginForm("Registro", "Home"))
                 {
 
                     <div class="mb-3">
                         <label for="username" class="form-label">Identificación</label>
-                        @Html.TextBoxFor(x => x.Identificacion, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.Identificacion, new { @class = "form-control", @onkeyup= "ConsultarNombre();" })
                     </div>
 
                     <div class="mb-3">
                         <label for="username" class="form-label">Nombre</label>
-                        @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control" })
+                        @Html.TextBoxFor(x => x.Nombre, new { @class = "form-control", @readOnly = "true" })
                     </div>
 
                     <div class="mb-3">
@@ -57,3 +65,24 @@
         <!-- Register Card -->
     </div>
 </div>
+
+<script>
+
+    function ConsultarNombre() { 
+
+          let identificacion = $("#Identificacion").val();
+
+           if (identificacion.length >= 9) { 
+
+      $.ajax({
+        type: 'GET',
+        url: "https://apis.gometa.org/cedulas/" + identificacion,
+        dataType: 'json', //recibir la respuesta en este formato 
+        success: function (result) { //aqui me devuelve la petición 
+            $("#Nombre").val(result.nombre);
+        }
+      });
+
+   }
+ }
+</script>

@@ -36,20 +36,30 @@ namespace KN_ProyectoWeb.Controllers
         {
             using (var context = new BD_KNEntities())
             {
-                var nuevoUsuario = new tbUsuario
+                // var nuevoUsuario = new tbUsuario
+                // {
+                // Identificacion = usuario.Identificacion,
+                //Nombre = usuario.Nombre,
+                // CorreoElectronico = usuario.CorreoElectronico,
+                //Contrasenna = usuario.Contrasenna,
+                // ConsecutivoPerfil = 2, 
+                //Estado = true
+                //};
+                //context.tbUsuario.Add(nuevoUsuario);
+                //var resultado = context.SaveChanges();
+
+                var resultado = context.CrearUsuarios(usuario.Identificacion, usuario.Nombre, usuario.CorreoElectronico, usuario.Contrasenna);
+               
+                if (resultado > 0)
                 {
-                    Identificacion = usuario.Identificacion,
-                    Nombre = usuario.Nombre,
-                    CorreoElectronico = usuario.CorreoElectronico,
-                    Contrasenna = usuario.Contrasenna,
-                    ConsecutivoPerfil = 2, 
-                    Estado = true
-                };
-                context.tbUsuario.Add(nuevoUsuario);
-                context.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+
+                ViewBag.Mensaje = "La información no se ha podido registrar";
+                return View();
+
 
             } 
-                return View();
         }
         #endregion
 
